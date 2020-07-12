@@ -4,11 +4,11 @@ namespace Pizza.Calculator.Application
 {
     public class ConsoleAdapter
     {
-        private IPizzaCalculator pizzaCalculator;
+        private IPizzaCalculator _pizzaCalculator;
 
         public ConsoleAdapter(IPizzaCalculator pizzaCalculator)
         {
-            this.pizzaCalculator = pizzaCalculator;
+            _pizzaCalculator = pizzaCalculator;
         }
 
         public void LaunchPizzaCalculation()
@@ -37,9 +37,9 @@ namespace Pizza.Calculator.Application
                     throw new InvalidOperationException("Le type de pizza n'a pas été compris");
             }
 
-            int pizzaCount = this.pizzaCalculator.GetPizzaCount(personCount, pizzaKind);
+            int pizzaCount = _pizzaCalculator.GetPizzaCount(personCount, pizzaKind);
 
-            Console.WriteLine("Il faudra {0} pizza(s).", pizzaCount);
+            Console.WriteLine($"Il faudra {pizzaCount} pizza(s).");
         }
     }
 }
